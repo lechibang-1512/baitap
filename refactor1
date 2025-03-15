@@ -1,0 +1,19 @@
+public class OrderCalculator {
+
+    // Định nghĩa các hằng số để tránh dùng "magic number"
+    private static final double BASE_PRICE = 100.0;
+    private static final int HIGH_QUANTITY_THRESHOLD = 50;
+    private static final int MEDIUM_QUANTITY_THRESHOLD = 20;
+    private static final double HIGH_DISCOUNT_RATE = 0.2;
+    private static final double MEDIUM_DISCOUNT_RATE = 0.1;
+
+    public double calculateDiscount(int quantity) {
+        // Sử dụng else if để tránh kiểm tra thừa
+        if (quantity > HIGH_QUANTITY_THRESHOLD) {
+            return BASE_PRICE * HIGH_DISCOUNT_RATE;
+        } else if (quantity > MEDIUM_QUANTITY_THRESHOLD) {
+            return BASE_PRICE * MEDIUM_DISCOUNT_RATE;
+        }
+        return 0;
+    }
+}
