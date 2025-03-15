@@ -1,0 +1,40 @@
+public class Customer {
+    // Biến membership được đặt là private để bảo vệ dữ liệu
+    private Membership membership;
+    
+    // Cập nhật enum Membership để chứa hệ số nhân (multiplier) cho mỗi loại thành viên
+    public enum Membership {
+         Bronze(1), Silver(2), Gold(3);
+         
+         private final int multiplier;
+         
+         // Constructor của enum
+         Membership(int multiplier) {
+             this.multiplier = multiplier;
+         }
+         
+         public int getMultiplier() {
+             return multiplier;
+         }
+    }
+    
+    // Constructor của lớp Customer
+    public Customer(Membership membership) {
+         this.membership = membership;
+    }
+    
+    // Setter cho membership
+    public void setMembership(Membership membership) {
+         this.membership = membership;
+    }
+    
+    // Getter cho membership
+    public Membership getMembership() {
+         return membership;
+    }
+    
+    // Phương thức tính điểm dựa trên số tiền đã chi và hệ số nhân của membership
+    public double getPointsEarned(double amountSpent) {
+         return amountSpent * membership.getMultiplier();
+    }
+}
